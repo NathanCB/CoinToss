@@ -11,7 +11,7 @@
  * guesses as well displaying the end of the game.
  * 
  * */
-
+import scala.util.Random
 object CoinToss {
   case class GameState(tosses: Int, correctGuesses: Int)
   
@@ -34,6 +34,17 @@ object CoinToss {
   
   def printGameOver: Unit = {
     println("\n===Game Over===")
+  }
+  
+  val r = new scala.util.Random
+  r.nextInt(2)
+  
+  def coinToss(r: Random) = {
+    val i = r.nextInt(2)
+    i match {
+      case 0 => "H"
+      case 1 => "T"
+    }
   }
   
 }
