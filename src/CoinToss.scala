@@ -3,16 +3,37 @@
  * Choose: (h)eads, (t)ails, or (q)uit: _
  * 
  * If the user selects heads or tails then the program "fips" a virtual coin and 
- * displays the output  showing the result of the flip as well as number of total flips
- * and the number of correct guesses like this:
- * Flip was Heads. #Flips: 1, #Correct: 1
+ * displays the output showing the result of the toss as well as number of total tosses
+ * The number of correct guesses displays like this:
+ * Toss result was Heads. #Tosses: 1, #Correct: 1
+ * 
+ * The end of the game displays the total number of tosses and the total number of correct
+ * guesses as well displaying the end of the game.
  * 
  * */
 
 object CoinToss {
-  case class GameState(flips: Int, correctGuesses: Int)
+  case class GameState(tosses: Int, correctGuesses: Int)
+  
   def showPrompt: Unit = println(s"\nChoose: (h)eads, (t)ails, or (q)uit: _ ")
   def getUserInput = scala.io.StdIn.readLine.trim.toUpperCase
   
+  def tossResult(toss: String): String = toss match {
+    case "H" => "Heads"
+    case "T" => "Tails"
+  }
+  
+  def printGameState(result: String, gameState: GameState): Unit = {
+    print(s"Toss result was $result")
+    printCurrentGameState(gameState)
+  }
+  
+  def printCurrentGameState(gameState: GameState): Unit = {
+    println(s"\n#Tosses: ${gameState.tosses}, #Correct: ${gameState.correctGuesses}")
+  }
+  
+  def printGameOver: Unit = {
+    println("\n===Game Over===")
+  }
   
 }
