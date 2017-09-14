@@ -12,10 +12,10 @@ object CoinTossUtilities {
   
   def printGameState(result: String, gameState: GameState): Unit = {
     print(s"Toss result was $result")
-    printCurrentGameState(gameState)
+    printGameState(gameState)
   }
   
-  def printCurrentGameState(gameState: GameState): Unit = {
+  def printGameState(gameState: GameState): Unit = {
     println(s"\n#Tosses: ${gameState.tosses}, #Correct: ${gameState.correctGuesses}")
   }
   

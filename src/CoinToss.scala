@@ -41,6 +41,7 @@ object CoinToss extends App{
   					//compare the user's input with toss result
   					if (userInput == coinTossResult) {
   						//then user guessed right
+  					  
   						//write the output
   					 mainLoop(newGameState, random)
   					} 
@@ -53,7 +54,7 @@ object CoinToss extends App{
 					case _ => {
 					  //assume typed "Q"
 					  printGameOver
-					  printCurrentGameState(gameState)
+					  printGameState(gameState)
 					  //exit game
 					}
 			}
