@@ -5,7 +5,7 @@ object CoinTossUtilities {
   def showPrompt: Unit = println(s"\nChoose: (h)eads, (t)ails, or (q)uit: _ ")
   def getUserInput = readLine.trim.toUpperCase
   
-  def tossResult(toss: String): String = toss match {
+  def printTossResult(toss: String) = toss match {
     case "H" => "Heads"
     case "T" => "Tails"
   }
@@ -16,7 +16,7 @@ object CoinTossUtilities {
   }
   
   def printGameState(gameState: GameState): Unit = {
-    println(s"\n#Tosses: ${gameState.tosses}, #Correct: ${gameState.correctGuesses}")
+    println(s"\n#Tosses: ${gameState.numTosses}, #Correct: ${gameState.correctGuesses}")
   }
   
   def printGameOver: Unit = {
@@ -26,7 +26,7 @@ object CoinTossUtilities {
   val r = new scala.util.Random
   r.nextInt(2)
   
-  def coinToss(r: Random) = {
+  def coinToss(r: Random): String = {
     val i = r.nextInt(2)
     i match {
       case 0 => "H"
